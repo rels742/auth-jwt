@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 function createToken(payload, secret) {
   // the two paramteters, payload and secret - payload includes information needed to identify who the user is, no sensetive info. Secret is the secret phrase, this is a string of text that only the server knows
 
-  return jwt.sign({ payload }, secret);
+  return jwt.sign(payload, secret);
 }
 
 // console.log(createToken({ username: "lorel", id: 17 }, "mysecret"));
@@ -26,7 +26,7 @@ function createToken(payload, secret) {
  * Documentation: https://www.npmjs.com/package/jsonwebtoken#token-expiration-exp-claim
  */
 function createTokenWithExpiry(payload, secret, expiry) {
-  return jwt.sign({ payload }, secret, { expiresIn: expiry });
+  return jwt.sign(payload, secret, { expiresIn: expiry });
 }
 
 // console.log(
